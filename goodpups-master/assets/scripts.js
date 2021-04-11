@@ -8,7 +8,7 @@ function init() {
 function getDogs(limit) {
   $.ajax({
     url: 'https://dog.ceo/api/breeds/image/random/' + limit,
-    success: function(result) {
+    success: function (result) {
       if (result.status == 'success') {
         var images = result.message;
         buildProfiles(images);
@@ -19,17 +19,17 @@ function getDogs(limit) {
 
 function buildProfiles(images) {
   var cardTemplate = $('.dog-profile');
-  
-  images.forEach(function(image, index){
+
+  images.forEach(function (image, index) {
     let card = cardTemplate.clone();
     let rating = getRating();
-    
+
     $(card).find('.dog-profile__image img').attr('src', image);
     $(card).find('.dog-profile__content').text(getContent());
     $(card).find('.dog-profile__name').text(getName());
 
     for (var i = 0; i < rating; i++) {
-      $(card).find('.dog-profile__rating').text( $(card).find('.dog-profile__rating').text() + '* ');
+      $(card).find('.dog-profile__rating').text($(card).find('.dog-profile__rating').text() + '* ');
     }
 
     $(card).appendTo('.dogs .flex');
@@ -44,7 +44,11 @@ function cleanUp() {
 }
 
 function getRating() {
-  return Math.floor(Math.random() * 5) + 1;
+  let i = 0;
+  while (i < 3) {
+    i = Math.floor(Math.random() * 5) + 1;
+  }
+  return i;
 }
 
 function getContent() {
