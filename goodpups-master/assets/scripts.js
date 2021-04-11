@@ -1,5 +1,15 @@
 $(document).ready(init());
-
+$(document).ready(function () {
+  $.ajax({
+    url: 'https://dog.ceo/api/breeds/image/random/' + 1,
+    success: function (result) {
+      if (result.status == 'success') {
+        var banner = result.message;
+        $('#banner').attr('src', banner)
+      }
+    }
+  });
+});
 function init() {
   var limit = 12;
   getDogs(limit);
@@ -11,7 +21,6 @@ function hideProfile() {
     $(this).hide()
   })
 }
-
 
 function getDogs(limit) {
   $.ajax({
@@ -27,7 +36,6 @@ function getDogs(limit) {
 
 function buildProfiles(images) {
   var cardTemplate = $('.dog-profile');
-
   images.forEach(function (image, index) {
     let card = cardTemplate.clone();
     let rating = getRating();
