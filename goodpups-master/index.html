@@ -21,7 +21,7 @@
       <div class="container mx-auto">
         <div class="flex flex-wrap grid grid-cols-2 gap-x-8">
           <div
-            class="dog-profile lg:flex pt-3 pl-3 bg-gray-300 rounded-lg overflow-hidden shadow-xl border border-blue-200 w-full text-center mb-8"
+            class="hide dog-profile lg:flex pt-3 pl-3 bg-gray-300 rounded-lg overflow-hidden shadow-xl border border-blue-200 w-full text-center mb-8"
             style="display:none;">
             <figure class="dog-profile__image w-full bg-gray-400 mx-auto mb-3 relative overflow-hidden">
               <img src="" class="object-fit">
@@ -36,6 +36,10 @@
               <div class="dog-profile__content">
 
               </div>
+              <button onclick="hideProfile()"
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Hide
+              </button>
             </div>
 
           </div>

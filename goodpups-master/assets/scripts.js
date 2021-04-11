@@ -5,6 +5,14 @@ function init() {
   getDogs(limit);
 }
 
+// function to hide profiles
+function hideProfile() {
+  $('.hide').click(function (e) {
+    $(this).hide()
+  })
+}
+
+
 function getDogs(limit) {
   $.ajax({
     url: 'https://dog.ceo/api/breeds/image/random/' + limit,
